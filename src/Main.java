@@ -8,7 +8,7 @@ public class Main {
   public final static int NUM_MSGS = 400;
 
   public static void main(String[] args) {
-    Arc[] arcs = new Arc[NUM_MSGS];
+    Message[][] messages  = new Message[NUM_NODES][NUM_NODES];
     Node[] nodes = new Node[NUM_NODES];
     populateArray(nodes);
     File f = new File("./Messages.csv");
@@ -21,7 +21,7 @@ public class Main {
     try {
       sc = new Scanner(f);
    
-      sc.nextLine();
+      System.out.println(sc.nextLine());
   
       int i = 0;
       while (sc.hasNextLine()) {
@@ -31,8 +31,9 @@ public class Main {
         t2 = sc.nextInt();
         t3 = sc.nextInt();
         sc.nextLine();
-        Arc arc = new Arc(nodes[start], nodes[end], new Message(t1, t2, t3));
-        arcs[i] = arc;
+        Message message = new Message(t1,t2,t3);
+        //Arc arc = new Arc(nodes[start], nodes[end], new Message(t1, t2, t3));
+        messages[start][end] = message;
         i++;
       }
       sc.close();
