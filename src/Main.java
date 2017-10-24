@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -12,7 +9,8 @@ public class Main {
 
   public static void main(String[] args) {
     Arc[] arcs = new Arc[NUM_MSGS];
-    
+    Node[] nodes = new Node[NUM_NODES];
+    populateArray(nodes);
     File f = new File("./Messages.csv");
     if (!f.exists()) {
       System.out.println("Couldn't find file");
@@ -33,7 +31,7 @@ public class Main {
         t2 = sc.nextInt();
         t3 = sc.nextInt();
         sc.nextLine();
-        Arc arc = new Arc(getNode(start), getNode(end), new Message(t1, t2, t3));
+        Arc arc = new Arc(nodes[start], nodes[end], new Message(t1, t2, t3));
         arcs[i] = arc;
         i++;
       }
@@ -43,8 +41,9 @@ public class Main {
     }
   }
 
-  private static Node getNode(int start) {
-    // TODO Auto-generated method stub
-    return null;
+  public static void populateArray(Node[] nodes) {
+    for(int k = 0; k<nodes.length; k++){
+        nodes[k] = new Node(k);
+    }
   }
 }
