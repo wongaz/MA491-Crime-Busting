@@ -2,10 +2,10 @@ public class Arc {
     Message  contents;
     Node sender;
     Node receiver;
-    public Arc(Node start, Node end, String message){
+    public Arc(Node start, Node end, Message message){
         this.sender = start;
         this.receiver = end;
-        this.contents = new Message(message);
+        this.contents = message;
     }
 
 }
