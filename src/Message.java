@@ -8,8 +8,18 @@ public class Message {
         this.contentId2 = id2;
         this.contentId3 = id3;
     }
+    
     public double getValue(){
         //TODO
         return 0;
+    }
+    public int getContentId1() {
+      return contentId1;
+    }
+    public int getContentId2() {
+      return contentId2;
+    }
+    public int getContentId3() {
+      return contentId3;
     }
 }
